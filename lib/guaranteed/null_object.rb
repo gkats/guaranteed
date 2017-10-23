@@ -34,6 +34,10 @@ module Guaranteed
       nil
     end
 
+    def to_json
+      "null"
+    end
+
     def method_missing(method_name, *args, &block)
       self
     end

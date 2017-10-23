@@ -42,6 +42,10 @@ class TestNullObject < Minitest::Test
     assert_nil(Guaranteed::NullObject.new.as_json)
   end
 
+  def test_to_json_returns_null
+    assert_equal("null", Guaranteed::NullObject.new.to_json)
+  end
+
   def test_tap_returns_self
     object = Guaranteed::NullObject.new
     assert_equal(true, object.tap { |o| o.foo = 'bar' }.nil?)

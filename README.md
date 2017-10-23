@@ -96,6 +96,8 @@ object.present?
 # => false
 object.as_json
 # => nil
+object.to_json
+# => "null"
 object.persisted?
 # => false
 ```

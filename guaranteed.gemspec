@@ -8,8 +8,11 @@ Gem::Specification.new do |s|
   s.authors     = ['Giannis Katsanos']
   s.email       = 'giannis.katsanos@gmail.com'
   s.homepage    = 'https://github.com/gkats/guaranteed'
-  s.summary     = 'i have to fix this'
-  s.description = 'i have to fix this'
+  s.summary     = 'Make something out of nothing!'
+  s.description = <<-DESC
+    Guaranteed is a tiny library that ensures you always have an object to act upon.
+    It eliminates checks for your object's capabilities.
+  DESC
   s.license     = 'MIT'
 
   s.files        = Dir["{lib}/**/*.rb", "LICENSE", "*.md", "Rakefile"]

@@ -6,6 +6,10 @@ module Guaranteed
 
     def_delegators :value, :nil?, :to_a, :to_s, :to_f, :to_i, :to_h
 
+    def persisted?
+      false
+    end
+
     def present?
       false
     end

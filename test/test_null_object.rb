@@ -46,4 +46,8 @@ class TestNullObject < Minitest::Test
     object = Guaranteed::NullObject.new
     assert_equal(true, object.tap { |o| o.foo = 'bar' }.nil?)
   end
+
+  def test_persisted_returns_false
+    assert_equal(false, Guaranteed::NullObject.new.persisted?)
+  end
 end

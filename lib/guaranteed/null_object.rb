@@ -1,6 +1,10 @@
 require 'forwardable'
 
 module Guaranteed
+  # An implementation the Null Object pattern.
+  #
+  # Overrides some common Ruby and Rails methods to avoid continual
+  #   type-checking. Delegates most of them to an intance of NilClass.
   class NullObject
     extend Forwardable
 
@@ -38,6 +42,10 @@ module Guaranteed
       "null"
     end
 
+    # Allows instances of the class to respond to any received message.
+    #
+    # Supports unlimited method chaining. Avoids NoMethodError in any
+    #   part of the method chain.
     def method_missing(method_name, *args, &block)
       self
     end

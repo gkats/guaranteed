@@ -13,6 +13,7 @@ Guaranteed's primary goal is to __eliminate nil checks__.
 Hey, I'm with you here, you probably don't. Consider this a "nice to have" library. But the truth is that using the library can lead to much cleaner designs. Plus, it's almost zero overhead for your project. All you need is Ruby.
 
 Here's the basic usage. Let's fire up `irb` and illustrate a frequent problem we face when coding.
+
 ```ruby
 # The most explicit approach
 # Too verbose!
@@ -42,35 +43,31 @@ end
 The above example is just scratching the surface of Guaranteed's abilities. Let's take a look at some more interesting examples.
 
 Most common Ruby methods on objects are supported. They follow Ruby's implicit type conversions for an instance of [NilClass](https://ruby-doc.org/core-2.3.0/NilClass.html).
+
 ```ruby
 object = Guaranteed.Object(nil)
 
-object.nil?
-# => true
-!object
-# => true
-object.to_a
-# => []
-object.to_h
-# => {}
-object.to_s
-# => ''
-object.to_f
-# => 0.0
-object.to_i
-# => 0
-object.empty?
-# => true
+object.nil?     # => true
+!object         # => true
+object.to_a     # => []
+object.to_h     # => {}
+object.to_s     # => ''
+object.to_f     # => 0.0
+object.to_i     # => 0
+object.empty?   # => true
 ```
 
 Need method chaining? You're covered.
+
 ```ruby
 object = Guaranteed.Object(nil)
 
 object.this.will.definitely.not.work!
 # => Returns self
 ```
+
 Agreed, this amount of method chaining breaks the [Law of Demeter](https://en.wikipedia.org/wiki/Law_of_Demeter). Sometimes reality hits you hard in the face though. Let's try the above example using [ActiveSupport::Object](http://api.rubyonrails.org/classes/Object.html).
+
 ```ruby
 # Ugh..
 object.try(:this).try(:will).try(:definitely).try(:not).try(:work!)
@@ -78,6 +75,7 @@ object.try(:this).try(:will).try(:definitely).try(:not).try(:work!)
 ```
 
 Bonus Ruby idiom that's supported.
+
 ```ruby
 object = Guaranteed.Object(nil)
 
@@ -89,17 +87,14 @@ end
 ```
 
 Using Rails? I've got good news for you! The library supports some Rails-specific methods too.
+
 ```ruby
 object = Guaranteed.Object(nil)
 
-object.present?
-# => false
-object.as_json
-# => nil
-object.to_json
-# => "null"
-object.persisted?
-# => false
+object.present?     # => false
+object.as_json      # => nil
+object.to_json      # => "null"
+object.persisted?   # => false
 ```
 
 ## OK, I'm sold. How do I install it?
@@ -114,6 +109,7 @@ $ gem install guaranteed
 Yes, please. Feel free to fork the project and create your own branches. Consider creating a pull request back to this repo.
 
 Remember, you can run the tests with
+
 ```
 $ rake
 ```

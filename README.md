@@ -102,6 +102,7 @@ object.persisted?   # => false
 ```
 $ gem install guaranteed
 # or add it to your Gemfile
+gem 'guaranteed', '~> 0.1.0'
 ```
 
 ## Can I contribute?
